@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scarlett - Personal Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Poppins', sans-serif;
+            background: radial-gradient(circle at center, #24243e 0%, #302b63 40%, #0f0c29 100%);
+            color: #fff;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            margin-bottom: 3rem;
+        }
+
+        .name h1 {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            background: linear-gradient(to right, #da22ff, #9733ee);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(218, 34, 255, 0.5);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.7rem 1.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .profile-container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 5rem;
+            justify-content: center;
+        }
+
+        .profile-image {
+            flex: 0 0 250px;
+            width: 250px;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 
+                        0 0 20px rgba(138, 43, 226, 0.3);
+        }
+
+        .profile-content {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .headline {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+            background: linear-gradient(to right, #da22ff, #9733ee);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(218, 34, 255, 0.5);
+            font-family: 'Poppins', sans-serif;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .subheadline {
+            font-size: 2rem;
+            color: #bb86fc;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .bio {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #e0e0e0;
+            max-width: 500px;
+            line-height: 1.8;
+        }
+
+        .about-btn {
+            background: linear-gradient(to right, #9c27b0, #673ab7);
+            border: none;
+            font-weight: 600;
+            padding: 0.8rem 2rem;
+        }
+
+        .about-btn:hover {
+            background: linear-gradient(to right, #8e24aa, #5e35b1);
+            box-shadow: 0 5px 15px rgba(103, 58, 183, 0.4);
+        }
+
+        .skills-section {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background: rgba(30, 30, 50, 0.7);
+            border-radius: 15px;
+            padding: 1.8rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 
+                        0 0 10px rgba(138, 43, 226, 0.2);
+            height: 100%;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25), 
+                        0 0 15px rgba(138, 43, 226, 0.3);
+        }
+
+        .skill-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #bb86fc;
+            font-weight: 700;
+        }
+
+        .skill-card p {
+            color: #b0b0b0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .about-page {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, #24243e 0%, #302b63 40%, #0f0c29 100%);
+            z-index: 100;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .about-page.active {
+            display: block;
+        }
+
+        .about-page-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .about-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            background: linear-gradient(to right, #da22ff, #9733ee);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(218, 34, 255, 0.5);
+            font-family: 'Poppins', sans-serif;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .about-description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #e0e0e0;
+            margin-bottom: 2rem;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 101;
+        }
+
+
+        .contact-form-container {
+            margin-top: 3rem;
+            background: rgba(30, 30, 50, 0.7);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 
+                        0 0 20px rgba(138, 43, 226, 0.3);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-form-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #bb86fc;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #e0e0e0;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #bb86fc;
+            box-shadow: 0 0 15px rgba(187, 134, 252, 0.3);
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(to right, #9c27b0, #673ab7);
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(to right, #8e24aa, #5e35b1);
+            box-shadow: 0 5px 15px rgba(103, 58, 183, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .submit-btn:disabled {
+            background: #666;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .error-message {
+            color: #ff6b6b;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .form-status {
+            text-align: center;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-weight: 500;
+            display: none;
+        }
+
+        .form-status.success {
+            background: rgba(72, 187, 120, 0.2);
+            color: #4ade80;
+            border: 1px solid rgba(72, 187, 120, 0.3);
+        }
+
+        .form-status.error {
+            background: rgba(248, 113, 113, 0.2);
+            color: #f87171;
+            border: 1px solid rgba(248, 113, 113, 0.3);
+        }
+
+        .form-status.loading {
+            background: rgba(96, 165, 250, 0.2);
+            color: #60a5fa;
+            border: 1px solid rgba(96, 165, 250, 0.3);
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 1.5rem;
+            height: 1.5rem;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 0.5rem;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .social-icons {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .social-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            background: rgba(30, 30, 50, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .social-icon svg {
+            width: 24px;
+            height: 24px;
+            transition: all 0.3s ease;
+        }
+        
+        .telegram-icon {
+            color: #0088cc;
+        }
+        
+        .discord-icon {
+            color: #7289da;
+        }
+        
+        .spotify-icon {
+            color: #1DB954;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        
+        .telegram-icon:hover {
+            background: rgba(0, 136, 204, 0.1);
+        }
+        
+        .discord-icon:hover {
+            background: rgba(114, 137, 218, 0.1);
+        }
+        
+        .spotify-icon:hover {
+            background: rgba(29, 185, 84, 0.1);
+        }
+
+        @media (max-width: 900px) {
+            .profile-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .profile-image {
+                flex: 0 0 250px;
+                margin: 0 auto;
+            }
+
+            .bio {
+                margin: 0 auto 2rem;
+            }
+
+            .skills-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .name h1 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+            
+            .headline {
+                font-size: 1.8rem;
+            }
+            
+            .subheadline {
+                font-size: 1.5rem;
+            }
+            
+            .skills-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+
+            .contact-form-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <audio id="bgMusic" autoplay loop controls="false" style="display:none;">
+        <source src="ww3.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+        <header>
+            <div class="name">
+                <a href="#" class="btn" id="message-btn">Send Message</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://t.me/catdog38" target="_blank" class="social-icon telegram-icon" title="Telegram">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                        <path d="M11.9941 2C6.47639 2 2 6.47639 2 12.0036C2 17.5236 6.47639 22 11.9941 22C17.5236 22 22 17.5236 22 12.0036C22 6.47639 17.5236 2 11.9941 2ZM16.9351 8.45446L15.1366 16.1926C15.0071 16.7592 14.6989 16.8886 14.2259 16.6139L11.5366 14.6284L10.2448 15.8781C10.1036 16.0192 9.98434 16.1386 9.71173 16.1386L9.90206 13.4073L15.0179 8.80899C15.2333 8.61866 14.9714 8.51173 14.6901 8.70206L8.26089 12.6371L5.61951 11.7716C5.06519 11.5928 5.0544 11.2412 5.74371 10.9664L16.1924 7.05233C16.6547 6.8845 17.0883 7.14431 16.9351 8.45446Z"/>
+                    </svg>
+                </a>
+                <a href="https://discord.gg/463ScTUR" target="_blank" class="social-icon discord-icon" title="Discord">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                        <path d="M19.9519 5.13423C18.5239 4.47926 17.0174 3.99782 15.4579 3.71582C15.4409 3.71582 15.4239 3.72388 15.415 3.73808C15.2334 4.05532 15.0336 4.46909 14.8967 4.79439C13.2219 4.53049 11.5643 4.53049 9.92782 4.79439C9.79086 4.46102 9.58299 4.05532 9.40047 3.73808C9.39155 3.72462 9.37444 3.71656 9.35747 3.71582C7.7994 3.99782 6.29444 4.47926 4.86497 5.13423C4.85748 5.13423 4.85007 5.13976 4.84563 5.1467C1.9615 9.49524 1.13862 13.7264 1.55231 17.9C1.55379 17.9151 1.56271 17.9302 1.57458 17.9386C3.49034 19.3489 5.34333 20.2013 7.16513 20.7763C7.1821 20.782 7.19951 20.775 7.20991 20.7614C7.64055 20.1891 8.0253 19.5879 8.35797 18.9577C8.37195 18.9291 8.3583 18.8961 8.33096 18.8869C7.71521 18.6632 7.1288 18.3958 6.56383 18.0936C6.53355 18.0766 6.53057 18.0344 6.55785 18.013C6.67784 17.926 6.79775 17.8345 6.91185 17.7415C6.9282 17.7279 6.94985 17.7235 6.96978 17.732C10.9679 19.5835 15.2661 19.5835 19.2182 17.732C19.2382 17.7228 19.2598 17.7272 19.2769 17.7408C19.391 17.8344 19.5109 17.926 19.6316 18.013C19.6589 18.0344 19.6566 18.0766 19.6256 18.0936C19.0614 18.4007 18.475 18.6632 17.8586 18.8862C17.8312 18.8954 17.8183 18.9291 17.8323 18.9577C18.1716 19.5872 18.5563 20.1884 18.9797 20.7606C18.9894 20.775 19.0075 20.782 19.0245 20.7763C20.8537 20.2013 22.7067 19.3489 24.6224 17.9386C24.635 17.9302 24.6432 17.9158 24.6447 17.9007C25.1414 13.0483 23.8462 8.85646 21.1508 5.14737C21.1472 5.13976 21.1398 5.13423 21.1323 5.13423H19.9519ZM9.09034 15.4045C7.85529 15.4045 6.84321 14.2938 6.84321 12.9418C6.84321 11.5897 7.83366 10.4791 9.09034 10.4791C10.3544 10.4791 11.3448 11.5973 11.3374 12.9418C11.3374 14.2938 10.3471 15.4045 9.09034 15.4045ZM15.9256 15.4045C14.6898 15.4045 13.6784 14.2938 13.6784 12.9418C13.6784 11.5897 14.6682 10.4791 15.9256 10.4791C17.189 10.4791 18.1801 11.5973 18.1727 12.9418C18.1727 14.2938 17.1897 15.4045 15.9256 15.4045Z"/>
+                    </svg>
+                </a>
+                <a href="https://open.spotify.com/playlist/7uMmNcWtV9LoV1T69qkn3Z?si=4cb9f82bee8b4a63" target="_blank" class="social-icon spotify-icon" title="Spotify">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                        <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM16.5625 16.4375C16.3125 16.8125 15.7812 16.9062 15.4062 16.6562C13.0625 15.2188 10.125 14.9062 6.5 15.6875C6.0625 15.7812 5.6875 15.5 5.59375 15.0938C5.5 14.6562 5.78125 14.2812 6.1875 14.1875C10.1875 13.3438 13.5 13.7188 16.1875 15.3438C16.5625 15.5938 16.6562 16.125 16.5625 16.4375ZM17.75 13.5625C17.4375 14.0312 16.7812 14.1562 16.3125 13.8438C13.625 12.1875 9.5 11.6875 6.25 12.7188C5.6875 12.875 5.0625 12.5625 4.9375 12.0312C4.8125 11.4688 5.09375 10.875 5.65625 10.75C9.4375 9.5625 14.0625 10.125 17.2188 12.0938C17.6875 12.375 17.8125 13.0625 17.75 13.5625ZM17.8125 10.5938C14.6875 8.6875 9.0625 8.5 5.75 9.5625C5.0625 9.75 4.3125 9.34375 4.125 8.65625C3.9375 7.96875 4.34375 7.21875 5.03125 7.03125C8.875 5.8125 15.125 6.03125 18.7812 8.28125C19.4062 8.65625 19.5938 9.5 19.2188 10.125C18.8438 10.7188 18.0312 10.9375 17.8125 10.5938Z"/>
+                    </svg>
+                </a>
+            </div>
+        </header>
+
+        <main>
+            <div class="profile-container">
+                <div class="profile-image">
+                    <img src="pfp.png" alt="Scarlett's Profile Picture">
+                </div>
+                <div class="profile-content">
+                    <h2 class="headline">Scarlett</h2>
+                    <h3 class="subheadline">Best dev you can hire</h3>
+                    <p class="bio">I Make tools or and method you need for the price of 0$.</p>
+                    <a href="#" class="btn about-btn" id="about-btn">About Me</a>
+                </div>
+            </div>
+        </main>
+
+        <section class="skills-section">
+            <div class="skill-card">
+                <h3>Web dev</h3>
+                <p>Passionate about making websites bio links and more contact me at - ckc3.</p>
+            </div>
+            <div class="skill-card">
+                <h3>What do i code</h3>
+                <p>C#, Py, Html, Css, c++ and more still learing :3.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Who am i</h3>
+                <p>15 year old on discord who is a bi 15 year old femboy love yall.</p>
+            </div>
+            <div class="skill-card">
+                <h3>app Development</h3>
+                <p>Creating modern, apps and more if you want a tool multi tool ect made dm me - ckc3.</p>
+            </div>
+        </section>
+    </div>
+
+    <div class="about-page" id="about-page">
+        <button class="close-btn" id="close-btn">&times;</button>
+        <div class="about-page-content">
+            <h1 class="about-title">Scarlett</h1>
+            <div class="about-description">
+                <p>Hello! I'm Scarlett, a 15-year-old femboy passionate about creating modern websites, bio links, and applications.</p>
+                <br>
+                <p>I specialize in a variety of programming languages including C#, Python, HTML, CSS, and C++. I'm constantly learning and expanding my skills to create better digital experiences.</p>
+                <br>
+                <p>Whether you need a personal website, a bio link page, or a custom tool, I'm here to help! Feel free to reach out to me on Discord at ckc3.</p>
+                <br>
+                <p>I'm dedicated to delivering high-quality work with clean code and smart design. Let's create something amazing together!</p>
+            </div>
+            <a href="https://discord.gg/463ScTUR" class="btn about-btn" target="_blank">Contact Me on Discord</a>
+        </div>
+    </div>
+    
+    <div class="about-page" id="message-modal">
+        <button class="close-btn" id="close-modal-btn">&times;</button>
+        <div class="about-page-content">
+            <h1 class="about-title">Contact Me</h1>
+            
+            <div class="contact-form-container">
+                <h3 class="contact-form-title">Send Me a Message</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Your name" required>
+                        <div class="error-message" id="nameError">Please enter your name</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Your email address" required>
+                        <div class="error-message" id="emailError">Please enter a valid email address</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" class="form-control" placeholder="What would you like to discuss?" required></textarea>
+                        <div class="error-message" id="messageError">Please enter your message</div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
+                </form>
+                <div class="form-status" id="formStatus"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        document.onkeydown = function(e) {
+
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+                return false;
+            }
+        };
+        
+        const aboutBtn = document.getElementById('about-btn');
+        const messageBtn = document.getElementById('message-btn');
+        const aboutPage = document.getElementById('about-page');
+        const messageModal = document.getElementById('message-modal');
+        const closeBtn = document.getElementById('close-btn');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const bgMusic = document.getElementById('bgMusic');
+        const contactForm = document.getElementById('contactForm');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+        const nameError = document.getElementById('nameError');
+        const emailError = document.getElementById('emailError');
+        const messageError = document.getElementById('messageError');
+        const submitBtn = document.getElementById('submitBtn');
+        const formStatus = document.getElementById('formStatus');
+        
+        const webhookUrl = "https://discord.com/api/webhooks/1363580695393603766/j39XqIwBv9mo7WELjsupwtgX5ePg5JBSlDFk2bU0YyzfMvR5Yuh3WPrFFFw9k7RC4UP5";
+
+        document.addEventListener('click', function() {
+            bgMusic.play();
+        });
+        
+        window.addEventListener('load', function() {
+            bgMusic.play();
+        });
+
+        aboutBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            aboutPage.classList.add('active');
+        });
+
+        closeBtn.addEventListener('click', function() {
+            aboutPage.classList.remove('active');
+        });
+
+        messageBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            messageModal.classList.add('active');
+        });
+        
+        closeModalBtn.addEventListener('click', function() {
+            messageModal.classList.remove('active');
+        });
+
+        function validateEmail(email) {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        function validateForm() {
+            let isValid = true;
+            
+            if (nameInput.value.trim() === '') {
+                nameError.style.display = 'block';
+                isValid = false;
+            } else {
+                nameError.style.display = 'none';
+            }
+            
+            if (!validateEmail(emailInput.value.trim())) {
+                emailError.style.display = 'block';
+                isValid = false;
+            } else {
+                emailError.style.display = 'none';
+            }
+            
+            if (messageInput.value.trim() === '') {
+                messageError.style.display = 'block';
+                isValid = false;
+            } else {
+                messageError.style.display = 'none';
+            }
+            
+            return isValid;
+        }
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!validateForm()) {
+                return;
+            }
+            
+            submitBtn.disabled = true;
+            formStatus.className = 'form-status loading';
+            formStatus.innerHTML = '<span class="loading-spinner"></span> Sending message...';
+            formStatus.style.display = 'block';
+            
+            const formData = {
+                content: "New message from portfolio contact form!",
+                embeds: [{
+                    title: "Contact Form Submission",
+                    color: 10181046,
+                    fields: [
+                        {
+                            name: "Name",
+                            value: nameInput.value.trim(),
+                            inline: true
+                        },
+                        {
+                            name: "Email",
+                            value: emailInput.value.trim(),
+                            inline: true
+                        },
+                        {
+                            name: "Message",
+                            value: messageInput.value.trim()
+                        }
+                    ],
+                    timestamp: new Date().toISOString()
+                }]
+            };
+            
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => {
+                if (response.ok) {
+                    formStatus.className = 'form-status success';
+                    formStatus.textContent = 'Message sent successfully! I\'ll get back to you soon.';
+                    
+                    contactForm.reset();
+                } else {
+                    throw new Error('Failed to send the message');
+                }
+            })
+            .catch(error => {
+                formStatus.className = 'form-status error';
+                formStatus.textContent = 'Failed to send message. Please try again or contact me on Discord.';
+                console.error('Error:', error);
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>
