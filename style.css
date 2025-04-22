@@ -70,6 +70,11 @@ body::after {
   font-size: 1.8rem;
 }
 
+.nav-buttons {
+  display: flex;
+  align-items: center;
+}
+
 nav .btn {
   margin-left: 12px;
 }
@@ -202,4 +207,43 @@ nav .btn {
   0%   { transform: scale(1); }
   30%  { transform: scale(1.1); }
   100% { transform: scale(1); }
+}
+
+.navigation-arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: rgba(108, 0, 250, 0.7);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 0 15px rgba(108, 0, 250, 0.5);
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.navigation-arrow svg {
+  width: 24px;
+  height: 24px;
+  stroke: white;
+  stroke-width: 2;
+}
+
+.navigation-arrow:hover {
+  background: rgba(108, 0, 250, 1);
+  box-shadow: 0 0 20px rgba(108, 0, 250, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.arrow-right {
+  right: 20px;
+}
+
+.arrow-left {
+  left: 20px;
 }
