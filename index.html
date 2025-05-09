@@ -18,7 +18,7 @@
 
         body {
             font-family: 'Inter', 'Poppins', sans-serif;
-            background: radial-gradient(circle at center, #24243e 0%, #302b63 40%, #0f0c29 100%);
+            background: radial-gradient(circle at center, #1a0808 0%, #0a0404 40%, #000000 100%);
             color: #fff;
             min-height: 100vh;
             line-height: 1.6;
@@ -42,11 +42,11 @@
             font-size: 28px;
             font-weight: 800;
             letter-spacing: 1px;
-            background: linear-gradient(to right, #da22ff, #9733ee);
+            background: linear-gradient(to right, #ff0000, #cc0000);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 0 10px rgba(218, 34, 255, 0.5);
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
             font-family: 'Poppins', sans-serif;
         }
 
@@ -105,18 +105,18 @@
             font-weight: 800;
             margin-bottom: 0.5rem;
             line-height: 1.2;
-            background: linear-gradient(to right, #da22ff, #9733ee);
+            background: linear-gradient(to right, #ff0000, #cc0000);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 0 20px rgba(218, 34, 255, 0.5);
+            text-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
             font-family: 'Poppins', sans-serif;
             animation: float 3s ease-in-out infinite;
         }
 
         .subheadline {
             font-size: 2rem;
-            color: #bb86fc;
+            color: #ff0000;
             margin-bottom: 1.5rem;
             font-weight: 700;
         }
@@ -130,7 +130,7 @@
         }
 
         .about-btn {
-            background: linear-gradient(to right, #9c27b0, #673ab7);
+            background: linear-gradient(to right, #ff0000, #cc0000);
             border: none;
             font-weight: 600;
             padding: 0.8rem 2rem;
@@ -168,7 +168,7 @@
         .skill-card h3 {
             font-size: 1.3rem;
             margin-bottom: 1rem;
-            color: #bb86fc;
+            color: #ff0000;
             font-weight: 700;
         }
 
@@ -206,11 +206,11 @@
             font-size: 3rem;
             font-weight: 800;
             margin-bottom: 2rem;
-            background: linear-gradient(to right, #da22ff, #9733ee);
+            background: linear-gradient(to right, #ff0000, #cc0000);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 0 20px rgba(218, 34, 255, 0.5);
+            text-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
             font-family: 'Poppins', sans-serif;
             animation: float 3s ease-in-out infinite;
         }
@@ -263,7 +263,7 @@
         .contact-form-title {
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
-            color: #bb86fc;
+            color: #ff0000;
             text-align: center;
             font-weight: 700;
         }
@@ -307,7 +307,7 @@
         }
 
         .submit-btn {
-            background: linear-gradient(to right, #9c27b0, #673ab7);
+            background: linear-gradient(to right, #ff0000, #cc0000);
             border: none;
             color: white;
             font-weight: 600;
@@ -382,13 +382,13 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
-        
+
         .social-icons {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
-        
+
         .social-icon {
             display: flex;
             justify-content: center;
@@ -401,38 +401,38 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        
+
         .social-icon svg {
             width: 24px;
             height: 24px;
             transition: all 0.3s ease;
         }
-        
+
         .telegram-icon {
             color: #0088cc;
         }
-        
+
         .discord-icon {
             color: #7289da;
         }
-        
+
         .spotify-icon {
             color: #1DB954;
         }
-        
+
         .social-icon:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
-        
+
         .telegram-icon:hover {
             background: rgba(0, 136, 204, 0.1);
         }
-        
+
         .discord-icon:hover {
             background: rgba(114, 137, 218, 0.1);
         }
-        
+
         .spotify-icon:hover {
             background: rgba(29, 185, 84, 0.1);
         }
@@ -464,24 +464,24 @@
                 gap: 1rem;
                 text-align: center;
             }
-            
+
             .name h1 {
                 font-size: 2rem;
                 margin-bottom: 1rem;
             }
-            
+
             .headline {
                 font-size: 1.8rem;
             }
-            
+
             .subheadline {
                 font-size: 1.5rem;
             }
-            
+
             .skills-section {
                 grid-template-columns: 1fr;
             }
-            
+
             .container {
                 padding: 1rem;
             }
@@ -489,6 +489,54 @@
             .contact-form-container {
                 padding: 1.5rem;
             }
+        }
+
+        .navigation-arrow {
+            position: fixed;
+            top: 50%;
+            padding: 15px;
+            background: rgba(255, 0, 0, 0.1);
+            border-radius: 50%;
+            color: #ff0000;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .navigation-arrow.arrow-right {
+            right: 20px;
+        }
+
+        .navigation-arrow.arrow-left {
+            left: 20px;
+        }
+
+        .navigation-arrow:hover {
+            background: rgba(255, 0, 0, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        body::before {
+          content: "";
+          position: fixed;
+          width: 200px;
+          height: 200px;
+          border-radius: 50%;
+          filter: blur(150px);
+          z-index: -1;
+          background: #ff0000;
+        }
+
+        body::after {
+          content: "";
+          position: fixed;
+          width: 200px;
+          height: 200px;
+          border-radius: 50%;
+          filter: blur(150px);
+          z-index: -1;
+          background: #ff0000;
         }
     </style>
 </head>
@@ -503,7 +551,7 @@
             <polyline points="12 5 19 12 12 19"></polyline>
         </svg>
     </a>
-    
+
     <div class="container">
         <header>
             <div class="name">
@@ -578,12 +626,12 @@
             <a href="https://discord.gg/463ScTUR" class="btn about-btn" target="_blank">Contact Me on Discord</a>
         </div>
     </div>
-    
+
     <div class="about-page" id="message-modal">
         <button class="close-btn" id="close-modal-btn">&times;</button>
         <div class="about-page-content">
             <h1 class="about-title">Contact Me</h1>
-            
+
             <div class="contact-form-container">
                 <h3 class="contact-form-title">Send Me a Message</h3>
                 <form id="contactForm">
@@ -592,19 +640,19 @@
                         <input type="text" id="name" name="name" class="form-control" placeholder="Your name" required>
                         <div class="error-message" id="nameError">Please enter your name</div>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" id="email" name="email" class="form-control" placeholder="Your email address" required>
                         <div class="error-message" id="emailError">Please enter a valid email address</div>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="message">Message</label>
                         <textarea id="message" name="message" class="form-control" placeholder="What would you like to discuss?" required></textarea>
                         <div class="error-message" id="messageError">Please enter your message</div>
                     </div>
-                    
+
                     <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
                 </form>
                 <div class="form-status" id="formStatus"></div>
@@ -620,7 +668,7 @@
                 return false;
             }
         };
-        
+
         const aboutBtn = document.getElementById('about-btn');
         const messageBtn = document.getElementById('message-btn');
         const aboutPage = document.getElementById('about-page');
@@ -637,13 +685,13 @@
         const messageError = document.getElementById('messageError');
         const submitBtn = document.getElementById('submitBtn');
         const formStatus = document.getElementById('formStatus');
-        
+
         const webhookUrl = "https://discord.com/api/webhooks/1363580695393603766/j39XqIwBv9mo7WELjsupwtgX5ePg5JBSlDFk2bU0YyzfMvR5Yuh3WPrFFFw9k7RC4UP5";
 
         document.addEventListener('click', function() {
             bgMusic.play();
         });
-        
+
         window.addEventListener('load', function() {
             bgMusic.play();
         });
@@ -661,7 +709,7 @@
             e.preventDefault();
             messageModal.classList.add('active');
         });
-        
+
         closeModalBtn.addEventListener('click', function() {
             messageModal.classList.remove('active');
         });
@@ -673,42 +721,42 @@
 
         function validateForm() {
             let isValid = true;
-            
+
             if (nameInput.value.trim() === '') {
                 nameError.style.display = 'block';
                 isValid = false;
             } else {
                 nameError.style.display = 'none';
             }
-            
+
             if (!validateEmail(emailInput.value.trim())) {
                 emailError.style.display = 'block';
                 isValid = false;
             } else {
                 emailError.style.display = 'none';
             }
-            
+
             if (messageInput.value.trim() === '') {
                 messageError.style.display = 'block';
                 isValid = false;
             } else {
                 messageError.style.display = 'none';
             }
-            
+
             return isValid;
         }
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
+
             if (!validateForm()) {
                 return;
             }
-            
+
             submitBtn.disabled = true;
             formStatus.className = 'form-status loading';
             formStatus.innerHTML = '<span class="loading-spinner"></span> Sending message...';
             formStatus.style.display = 'block';
-            
+
             const formData = {
                 content: "New message from portfolio contact form!",
                 embeds: [{
@@ -733,7 +781,7 @@
                     timestamp: new Date().toISOString()
                 }]
             };
-            
+
             fetch(webhookUrl, {
                 method: 'POST',
                 headers: {
@@ -745,7 +793,7 @@
                 if (response.ok) {
                     formStatus.className = 'form-status success';
                     formStatus.textContent = 'Message sent successfully! I\'ll get back to you soon.';
-                    
+
                     contactForm.reset();
                 } else {
                     throw new Error('Failed to send the message');
